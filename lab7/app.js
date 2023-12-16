@@ -7,8 +7,9 @@ var logger = require('morgan');
 var indexRouter = require('./routes/index');
 var usersRouter = require('./routes/users');
 // 1A. config location of routers
-var mobileRouter = require('./routes/mobile');
+var toyRouter = require('./routes/toy');
 var brandRouter = require('./routes/brand');
+var categoryRouter = require('./routes/category');
 
 var app = express();
 
@@ -17,7 +18,7 @@ hbs.registerHelper('equal', require('handlebars-helper-equal'))
 
 // 2. config 'mongoose' module
 var mongoose = require('mongoose');
-var uri = "mongodb+srv://tandxgch211309:tan21102003@cluster0.pqo3tq9.mongodb.net/gch1106";
+var uri = "mongodb+srv://tandxgch211309:tan21102003@cluster0.pqo3tq9.mongodb.net/Toyy";
 mongoose.set('strictQuery', true); //ignore mongoose warning
 mongoose.connect(uri)
   .then(() => console.log('ok'))
@@ -40,8 +41,9 @@ app.use(express.static(path.join(__dirname, 'public')));
 app.use('/', indexRouter);
 // 1B. config url path of routers
 app.use('/users', usersRouter);
-app.use('/mobile', mobileRouter);
+app.use('/toy', toyRouter);
 app.use('/brand', brandRouter);
+app.use('/category', categoryRouter);
 
 // catch 404 and forward to error handler
 app.use(function(req, res, next) {
@@ -60,6 +62,6 @@ app.use(function(err, req, res, next) {
 });
 
 //4. config port (for cloud deployment)
-app.listen(process.env.PORT || 3001);
+app.listen(process.env.PORT || 3002);
 
 module.exports = app;

@@ -1,6 +1,5 @@
 <!DOCTYPE html>
 <html>
-
 <head>
   <title>{{title}}</title>
   <link rel='stylesheet' href='/stylesheets/style.css' />
@@ -16,21 +15,34 @@
         <a class="nav-link" href="/">Home</a>
       </li>
       <li class="h1 nav-item">
-        <a class="nav-link" href="/mobile">Mobile</a>
+        <a class="nav-link" href="/toy">Toy</a>
       </li>
       <li class="h1 nav-item">
         <a class="nav-link" href="/brand">Brand</a>
       </li>
-        <li class="h1 nav-item">
-          <a class="nav-link" href="/mobile/customer">Customer site</a>
-        </li>
+      <li class="h1 nav-item">
+        <a class="nav-link" href="/category">Category</a>
+      </li>
     </ul>
     {{{body}}}
 
     <!-- footer (bottom) -->
 
     <p class="alert alert-warning text-center mt-5">Copyright by Greenwich Vietnam - 2023</p>
+  {{!-- </div>
+  <div class="container col-md-7 text-center">
+    <div class="card">
+   <div class="row">
+      {{#each toys }}
+      <div class="col-md-3">
+         <img class="card-img-top" src="{{ image }}" width="100" height="100">
+         <div class="card-body">
+            <h5 class="card-title">{{ model}}</h5>
+         </div>
+      </div>
+      {{/each}}
+   </div>
+</div> --}}
   </div>
 </body>
-
 </html>

@@ -1,7 +1,7 @@
 var express = require('express');
 var router = express.Router();
 var BrandModel = require('../models/BrandModel');
-var MobileModel = require('../models/MobileModel');
+var ToyModel = require('../models/ToyModel');
 
 router.get('/', async (req, res) => {
    var brands = await BrandModel.find({});
@@ -20,9 +20,9 @@ router.post('/add', async (req, res) => {
 
 router.get('/detail/:id', async (req, res) => {
    var id = req.params.id;
-   //SQL: SELECT * FROM mobiles WHERE brand = "id"
-   var mobiles = await MobileModel.find({ brand : id }).populate('brand');
-   res.render('brand/detail', { mobiles })
+   //SQL: SELECT * FROM toys WHERE brand = "id"
+   var toys = await ToyModel.find({ brand : id }).populate('brand');
+   res.render('brand/detail', { toys })
 })
 
 router.get('/delete/:id', async (req, res) => {
