@@ -1,15 +1,15 @@
 var mongoose = require('mongoose');
 var ToySchema = mongoose.Schema({
-   model: String,
-   color: String,
+   name: String,
    image: String,
+   price: String,
    brand: {
       type: mongoose.Schema.Types.ObjectId,
       ref: 'brands'  // 'brands': collection
    },
    category: {
       type: mongoose.Schema.Types.ObjectId,
-      ref: 'categories'  // 'brands': collection
+      ref: 'categories'  // 'categorys': collection
    }
 });
 //Relationship : mobiles (many) - brands (one)

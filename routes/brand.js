@@ -27,19 +27,8 @@ router.get('/detail/:id', async (req, res) => {
 
 router.get('/delete/:id', async (req, res) => {
    var id = req.params.id;
-   //cách 1
-   try {
-      //SQL: DELETE FROM brands WHERE brand = id
-      await BrandModel.findByIdAndDelete(id);
-      console.log('Delete brand succeed !');
-   } catch (err) {
-      console.log('Delete brand fail. Error: ' + err);
-   };
-
-   //cách 2
    var brand = await BrandModel.findById(id);
    await BrandModel.deleteOne(brand);
-
    res.redirect('/brand');
 })
 

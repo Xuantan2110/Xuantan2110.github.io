@@ -10,8 +10,8 @@ router.get('/', async (req, res) => {
    //Path: views/toy/index.hbs
    res.render('toy/index', { toys });
 })
-router.get('/customer', async (req, res) => {
-   var toys = await ToyModel.find({}).populate('brand');
+router.get('/customersite', async (req, res) => {
+   var toys = await ToyModel.find({}).populate('brand category');
    //Path: views/toy/index.hbs
    res.render('toy/list', { toys });
 })
@@ -21,6 +21,12 @@ router.get('/add', async (req, res) => {
    var categories = await CategoryModel.find({});
    res.render('toy/add', { brands , categories });
 })
+router.get('/detail/:id', async (req, res) => {
+   const toyId = req.params.id; 
+   var toy = await ToyModel.findById(toyId).populate('brand category');
+   // Path: views/toy/detail.hbs
+   res.render('toy/detail', { toy });
+ });
 
 router.post('/add', async (req, res) => {
    var toy = req.body;

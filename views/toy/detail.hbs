@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Chi Tiết Sản Phẩm</title>
+  <style>
+    body {
+      margin: 0;
+      font-family: Arial, sans-serif;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      min-height: 100vh;
+      background-color: #f4f4f4;
+    }
+
+    .product-card-wrapper {
+      background-color: rgba(255, 255, 255, 0.9);
+      box-shadow: 0 0 10px rgba(0, 0, 0, 0.2);
+      max-width: 400px;
+      padding: 20px;
+      border-radius: 8px;
+      text-align: center;
+    }
+
+    .blur-background {
+      position: fixed;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      background-color: rgba(0, 0, 0, 0.5);
+      z-index: 1;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+    }
+
+    .product-details {
+      color: #333;
+    }
+  </style>
+</head>
+<body>
+<div class="blur-background">
+  <div class="product-card-wrapper">
+    <div class="product-details">
+      <img src="{{ toy.image }}" alt="" width="400" height="400">
+      <h2>Name of toy: {{ toy.name }}</h2>
+      <p>Price: {{ toy.price }}$</p>
+      <p>Brand name: {{ toy.brand.name }}</p>
+      <p>Category name: {{ toy.category.name }}</p>
+      <a style="text-decoration: none; color:#000000" href="/toy/customersite"><button type="button" class="btn btn-dark">Back</button></a>
+    </div>
+  </div>
+</div>
+</body>
+</html>

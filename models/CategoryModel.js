@@ -5,9 +5,9 @@ var CategorySchema = mongoose.Schema(
          type: String,
          required: true,
          minlength: [3, 'category name must be at least 3 characters'],
-         maxlength: 20
+         maxlength: 5000
       },
-      country: String
+      discription: String
    });
 var CategoryModel = mongoose.model('categories', CategorySchema);
 module.exports = CategoryModel;

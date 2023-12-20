@@ -27,19 +27,8 @@ router.get('/detail/:id', async (req, res) => {
 
 router.get('/delete/:id', async (req, res) => {
    var id = req.params.id;
-   //cách 1
-   try {
-      //SQL: DELETE FROM categories WHERE category = id
-      await CategoryModel.findByIdAndDelete(id);
-      console.log('Delete category succeed !');
-   } catch (err) {
-      console.log('Delete category fail. Error: ' + err);
-   };
-
-   //cách 2
    var category = await CategoryModel.findById(id);
    await CategoryModel.deleteOne(category);
-
    res.redirect('/category');
 })
 
