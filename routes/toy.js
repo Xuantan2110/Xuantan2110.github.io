@@ -3,15 +3,16 @@ var router = express.Router();
 var ToyModel = require('../models/ToyModel');
 var BrandModel = require('../models/BrandModel');
 var CategoryModel = require('../models/CategoryModel');
+var ColorModel = require('../models/ColorModel');
 
 //URL: localhost:3001/toy
 router.get('/', async (req, res) => {
-   var toys = await ToyModel.find({ }).populate('brand category');
+   var toys = await ToyModel.find({ }).populate('brand category color');
    //Path: views/toy/index.hbs
    res.render('toy/index', { toys });
 })
 router.get('/customersite', async (req, res) => {
-   var toys = await ToyModel.find({}).populate('brand category');
+   var toys = await ToyModel.find({}).populate('brand category color');
    //Path: views/toy/index.hbs
    res.render('toy/list', { toys });
 })
@@ -19,11 +20,12 @@ router.get('/customersite', async (req, res) => {
 router.get('/add', async (req, res) => {
    var brands = await BrandModel.find({});
    var categories = await CategoryModel.find({});
-   res.render('toy/add', { brands , categories });
+   var colors = await ColorModel.find({});
+   res.render('toy/add', { brands , categories, colors });
 })
 router.get('/detail/:id', async (req, res) => {
    const toyId = req.params.id; 
-   var toy = await ToyModel.findById(toyId).populate('brand category');
+   var toy = await ToyModel.findById(toyId).populate('brand category color');
    // Path: views/toy/detail.hbs
    res.render('toy/detail', { toy });
  });
