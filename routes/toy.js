@@ -18,8 +18,7 @@ router.get('/customersite', async (req, res) => {
 router.get('/add', async (req, res) => {
    var brands = await BrandModel.find({});
    var categories = await CategoryModel.find({});
-   var colors = await ColorModel.find({});
-   res.render('toy/add', { brands , categories, colors });
+   res.render('toy/add', { brands , categories });
 })
 router.get('/detail/:id', async (req, res) => {
    const toyId = req.params.id; 
