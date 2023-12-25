@@ -10,10 +10,6 @@ var ToySchema = mongoose.Schema({
    category: {
       type: mongoose.Schema.Types.ObjectId,
       ref: 'categories'  // 'categorys': collection
-   },
-   color: {
-      type: mongoose.Schema.Types.ObjectId,
-      ref: 'colors'  // 'categorys': collection
    }
 });
 //Relationship : mobiles (many) - brands (one)

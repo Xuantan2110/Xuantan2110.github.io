@@ -83,7 +83,6 @@ table, th, td {
   <a href="/toy">Toy</a>
   <a href="/category">Category</a>
   <a href="/brand">Brand</a>
-  <a href="/color">Color</a>
 </div>
 <div style="padding-top: 40px;" class="container">
 <div class="content">
@@ -105,7 +104,6 @@ table, th, td {
             <th scope="col">Price</th>
             <th scope="col">Category name</th>
             <th scope="col">Brand name</th>
-            <th scope="col">Color name</th>
             <th scope="col">Action</th>
          </tr>
       </thead>
@@ -119,14 +117,12 @@ table, th, td {
                <td>{{ price }}</td>
                <td>{{ brand.name }}</td>
                <td>{{ category.name }}</td>
-               <td>{{ color.name }}</td>
                <td>
                   <a style="text-decoration: none;" class="btn btn-warning" href="/toy/edit/{{ _id }}">Edit</a>
                   <a style="text-decoration: none;" class="btn btn-danger" href="/toy/delete/{{ _id }}" onclick="return confirm('Are you sure to delete this toy ?');">Delete</a>
                </td>
             </tr>
             {{/each}}
-
       </tbody>
    </table>
 </div>
